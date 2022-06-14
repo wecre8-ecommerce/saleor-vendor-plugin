@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 
-import saleor.plugins.vendor.models
+import vendor.models
 
 
 class Migration(migrations.Migration):
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="vendor",
             name="phone_number",
-            field=saleor.plugins.vendor.models.PossiblePhoneNumberField(
+            field=vendor.models.PossiblePhoneNumberField(
                 db_index=True, max_length=128, region=None, unique=True
             ),
         ),

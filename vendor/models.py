@@ -148,7 +148,7 @@ class Transaction(models.Model):
         max_digits=settings.DEFAULT_MAX_DIGITS,
         decimal_places=settings.DEFAULT_DECIMAL_PLACES,
     )
-    value = MoneyField(amount_field="price_amount", currency_field="currency")
+    # value = MoneyField(amount_field="price_amount", currency_field="currency")
     payment = models.ForeignKey(
         Payment,
         on_delete=models.CASCADE,
@@ -177,7 +177,7 @@ class Commission(models.Model):
         max_digits=settings.DEFAULT_MAX_DIGITS,
         decimal_places=settings.DEFAULT_DECIMAL_PLACES,
     )
-    value = MoneyField(amount_field="price_amount", currency_field="currency")
+    # value = MoneyField(amount_field="price_amount", currency_field="currency")
     vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE)
     category = models.ForeignKey(
         "product.Category", blank=True, null=True, on_delete=models.CASCADE

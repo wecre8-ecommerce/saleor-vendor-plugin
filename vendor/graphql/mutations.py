@@ -134,6 +134,7 @@ class VendorCreate(ModelMutation):
         description = "Create a new vendor."
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def clean_input(cls, info, instance, data):
@@ -279,6 +280,7 @@ class VendorUpdate(ModelMutation):
         description = "Update a vendor."
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
 
 class VendorDelete(ModelDeleteMutation):
@@ -289,6 +291,7 @@ class VendorDelete(ModelDeleteMutation):
         description = "Delete the vendor."
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
 
 class BillingInfoCreateInput(graphene.InputObjectType):
@@ -314,6 +317,7 @@ class BillingInfoCreate(ModelMutation):
         description = "Create a new billing information for a vendor."
         model = models.BillingInfo
         error_type_class = BillingError
+        object_type = types.Billing
 
     @classmethod
     def clean_input(cls, info, instance, data):
@@ -365,6 +369,7 @@ class BillingInfoUpdate(ModelMutation):
         description = "Update billing information."
         model = models.BillingInfo
         error_type_class = VendorError
+        object_type = types.Billing
 
     @classmethod
     def perform_mutation(cls, root, info, **data):
@@ -384,6 +389,7 @@ class BillingInfoDelete(ModelDeleteMutation):
         description = "Delete billing information for a vendor."
         model = models.BillingInfo
         error_type_class = VendorError
+        object_type = types.Billing
 
 
 class VendorAddAttachment(ModelMutation):
@@ -395,6 +401,7 @@ class VendorAddAttachment(ModelMutation):
         description = "Add an attachment file to the vendor"
         model = models.Attachment
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, vendor_id, file):
@@ -414,6 +421,7 @@ class VendorRemoveAttachment(ModelDeleteMutation):
         description = "Remove an attachment from a vendor"
         model = models.Attachment
         error_type_class = VendorError
+        object_type = types.Vendor
 
 
 class VendorUpdateLogo(ModelMutation):
@@ -425,6 +433,7 @@ class VendorUpdateLogo(ModelMutation):
         description = "Update vendor logo image"
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, image_url):
@@ -465,6 +474,7 @@ class VendorUpdateHeader(ModelMutation):
         description = "Update vendor header image"
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, image_url):
@@ -505,6 +515,7 @@ class VendorAddProduct(ModelMutation):
         description = "Add a product to vendor catalogue"
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, product_id):
@@ -524,6 +535,7 @@ class VendorRemoveProduct(ModelMutation):
         description = "Add a product to vendor catalogue"
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, product_id):
@@ -543,6 +555,7 @@ class VendorAddUser(ModelMutation):
         description = "Add a user to a vendor."
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, user_id):
@@ -561,6 +574,7 @@ class VendorRemoveUser(ModelMutation):
         description = "Remove a user from a vendor."
         model = models.Vendor
         error_type_class = VendorError
+        object_type = types.Vendor
 
     @classmethod
     def perform_mutation(cls, _root, info, id, user_id):
@@ -596,6 +610,7 @@ class TransactionCreate(ModelMutation):
         description = "create new Transaction"
         model = models.Transaction
         error_type_class = TransactionError
+        object_type = types.VendorTransaction
 
     @classmethod
     def perform_mutation(cls, root, info, **data):
@@ -620,6 +635,7 @@ class TransactionUpdate(ModelMutation):
         description = "Update a Transaction"
         model = models.Transaction
         error_type_class = TransactionError
+        object_type = types.VendorTransaction
 
 
 class TransactionDelete(ModelDeleteMutation):
@@ -630,6 +646,7 @@ class TransactionDelete(ModelDeleteMutation):
         description = "Delete the Transaction"
         model = models.Transaction
         error_type_class = TransactionError
+        object_type = types.VendorTransaction
 
 
 class TransactionAddPayment(ModelMutation):
@@ -641,6 +658,7 @@ class TransactionAddPayment(ModelMutation):
         description = "Add a payment to transaction catalogue"
         model = models.Transaction
         error_type_class = TransactionError
+        object_type = types.VendorTransaction
 
     @classmethod
     def perform_mutation(cls, _root, info, id, payment_id):
@@ -660,6 +678,7 @@ class TransactionAddUser(ModelMutation):
         description = "Add a user to transaction catalogue"
         model = models.Transaction
         error_type_class = TransactionError
+        object_type = types.VendorTransaction
 
     @classmethod
     def perform_mutation(cls, _root, info, id, user_id):
@@ -697,6 +716,7 @@ class CommissionCreate(ModelMutation):
         description = "create new Commission"
         model = models.Commission
         error_type_class = CommissionError
+        object_type = types.Commission
 
     @classmethod
     def clean_input(cls, info, instance, data):
@@ -736,6 +756,7 @@ class CommissionUpdate(ModelMutation):
         description = "Update a Commission"
         model = models.Commission
         error_type_class = CommissionError
+        object_type = types.Commission
 
 
 class CommissionDelete(ModelDeleteMutation):
@@ -746,6 +767,7 @@ class CommissionDelete(ModelDeleteMutation):
         description = "delete the Commission"
         model = models.Commission
         error_type_class = CommissionError
+        object_type = types.Commission
 
 
 class CommissionAddCategory(ModelMutation):
@@ -757,6 +779,7 @@ class CommissionAddCategory(ModelMutation):
         description = "Add a category to category "
         model = models.Commission
         error_type_class = CommissionError
+        object_type = types.Commission
 
     @classmethod
     def perform_mutation(cls, _root, info, id, category_id):
@@ -775,6 +798,7 @@ class CommissionRemoveCategory(ModelMutation):
         description = "Add a category to commission "
         model = models.Commission
         error_type_class = CommissionError
+        object_type = types.Commission
 
     @classmethod
     def perform_mutation(cls, _root, info, id):
