@@ -16,6 +16,7 @@ from saleor.graphql.core.types.common import Image
 from vendor import models
 from vendor.graphql import enums
 
+
 class CountableDjangoObjectType(DjangoObjectType):
     class Meta:
         abstract = True
@@ -37,6 +38,7 @@ class VendorTransaction(CountableDjangoObjectType):
         model = models.Transaction
         filter_fields = ["id", "currency", "payment"]
         interfaces = (graphene.relay.Node,)
+        exclude = ["value"]
 
     def resolve_user(root, info):
         return graphene.Node.to_global_id("User", root.user.id)
@@ -148,6 +150,7 @@ class Commission(CountableDjangoObjectType):
         model = models.Commission
         filter_fields = ["id", "name", "type"]
         interfaces = (graphene.relay.Node,)
+        exclude = ["value"]
 
     def resolve_vendor(root, info):
         return root.vendor
