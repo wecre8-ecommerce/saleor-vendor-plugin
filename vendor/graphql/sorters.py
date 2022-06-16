@@ -1,5 +1,4 @@
 import graphene
-
 from saleor.graphql.core.types import SortInputObjectType
 
 

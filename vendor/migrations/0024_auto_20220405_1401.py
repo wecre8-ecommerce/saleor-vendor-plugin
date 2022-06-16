@@ -2,10 +2,10 @@
 
 from django.db import migrations
 from graphql.error.base import GraphQLError
-
 from saleor.graphql.core.utils import from_global_id_or_error
-from vendor.models import Vendor
 from saleor.product.models import Product
+
+from vendor.models import Vendor
 
 
 def migrate_old_vendors(apps, schema_editor):

@@ -1,9 +1,11 @@
 import django_filters
-
+from django.db.models import Q
 from saleor.graphql.account.enums import CountryCodeEnum
 from saleor.graphql.core.filters import EnumFilter
 from saleor.graphql.core.types.filter_input import FilterInputObjectType
+
 from vendor import models
+
 
 def filter_by_query_param(queryset, query, search_fields):
     """Filter queryset according to given parameters.

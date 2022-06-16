@@ -1,5 +1,6 @@
 from saleor.graphql.views import GraphQLView
 from saleor.plugins.base_plugin import BasePlugin
+
 from vendor.graphql.schema import schema
 
 

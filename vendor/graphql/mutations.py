@@ -11,7 +11,6 @@ from django.core.exceptions import ValidationError
 from django.core.files import File
 from django.core.validators import validate_email
 from phonenumber_field.phonenumber import PhoneNumber
-
 from saleor.graphql.account.enums import CountryCodeEnum
 from saleor.graphql.core.mutations import ModelDeleteMutation, ModelMutation
 from saleor.graphql.core.types import Upload
@@ -19,9 +18,15 @@ from saleor.graphql.core.utils import (
     from_global_id_or_error,
     validate_slug_and_generate_if_needed,
 )
+
 from vendor import models
 from vendor.graphql import enums, types
-from vendor.graphql.errors import BillingError, CommissionError, TransactionError, VendorError
+from vendor.graphql.errors import (
+    BillingError,
+    CommissionError,
+    TransactionError,
+    VendorError,
+)
 
 numbers_only = re.compile("[0-9]+")
 

@@ -1,6 +1,6 @@
 import graphene
-
 from saleor.graphql.core.types.common import Error
+
 from vendor.graphql import enums
 
 VendorErrorCode = graphene.Enum.from_enum(enums.VendorErrorCode)

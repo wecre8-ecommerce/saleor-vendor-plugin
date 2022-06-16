@@ -5,13 +5,11 @@ from django_countries.fields import CountryField
 from django_iban.fields import IBANField
 from django_prices.models import MoneyField
 from phonenumber_field.modelfields import PhoneNumberField
-
-from saleor.payment.models import Payment
-
 from saleor.account.models import Address
 from saleor.account.validators import validate_possible_number
 from saleor.core.db.fields import SanitizedJSONField
 from saleor.core.utils.editorjs import clean_editor_js
+from saleor.payment.models import Payment
 from saleor.product.models import Product
 
 User = get_user_model()

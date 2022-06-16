@@ -1,20 +1,19 @@
 import graphene
 from graphene import relay
 from graphene_django.types import DjangoObjectType
-
-from saleor.graphql.core.fields import FilterConnectionField
-from vendor.graphql.filters import TransactionFilterInput
-
 from saleor.graphql.account.enums import CountryCodeEnum
 from saleor.graphql.core.connection import (
+    CountableConnection,
     create_connection_slice,
     filter_connection_queryset,
 )
+from saleor.graphql.core.fields import FilterConnectionField
 from saleor.graphql.core.types import Upload
-from saleor.graphql.core.connection import CountableConnection
 from saleor.graphql.core.types.common import Image
+
 from vendor import models
 from vendor.graphql import enums
+from vendor.graphql.filters import TransactionFilterInput
 
 
 class CountableDjangoObjectType(DjangoObjectType):
