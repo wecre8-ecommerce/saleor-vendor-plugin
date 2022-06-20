@@ -137,7 +137,9 @@ class Transaction(models.Model):
         blank=True,
         null=True,
     )
-    status = models.IntegerField(choices=Status.choices, default=Status.PENDING)
+    transaction_status = models.IntegerField(
+        choices=Status.choices, default=Status.PENDING
+    )
     description = models.TextField(blank=True, default="")
     currency = models.CharField(
         max_length=settings.DEFAULT_CURRENCY_CODE_LENGTH, default="SAR"

@@ -594,20 +594,20 @@ class TransactionInput(graphene.InputObjectType):
         description="description of the Transaction", required=False
     )
     note = graphene.String(description="note of the Transaction", required=False)
-    status = graphene.Int(description="enter the choice for you")
+    transaction_status = graphene.Int(description="enter the choice for you")
     reason = graphene.Int(description="enter the choice for you")
     currency = graphene.String(description="the currency for your ammoutn")
     price_amount = graphene.Int(description="ammout of Transaction")
 
 
-class TransactionCreateInput(TransactionInput):
+class VendorTransactionCreateInput(TransactionInput):
     name = graphene.String(description="name of the Commission", required=True)
 
 
-class TransactionCreate(ModelMutation):
+class VendorTransactionCreate(ModelMutation):
     class Arguments:
         vendor_id = graphene.ID(required=True, description="Vendor ID.")
-        input = TransactionCreateInput(
+        input = VendorTransactionCreateInput(
             required=True, description="Fields required to create Transaction"
         )
 
@@ -625,14 +625,14 @@ class TransactionCreate(ModelMutation):
         return cls(**{cls._meta.return_field_name: transaction})
 
 
-class TransactionUpdateInput(TransactionInput):
+class VendorTransactionUpdateInput(TransactionInput):
     name = graphene.String(description="name of the Commission", required=False)
 
 
-class TransactionUpdate(ModelMutation):
+class VendorTransactionUpdate(ModelMutation):
     class Arguments:
         id = graphene.ID(required=True, description="id of Transaction to update")
-        input = TransactionUpdateInput(
+        input = VendorTransactionUpdateInput(
             description="Fields to update a transaction", required=True
         )
 

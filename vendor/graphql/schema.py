@@ -23,9 +23,7 @@ from vendor.graphql.mutations import (
     CommissionUpdate,
     TransactionAddPayment,
     TransactionAddUser,
-    TransactionCreate,
     TransactionDelete,
-    TransactionUpdate,
     VendorAddAttachment,
     VendorAddProduct,
     VendorAddUser,
@@ -34,6 +32,8 @@ from vendor.graphql.mutations import (
     VendorRemoveAttachment,
     VendorRemoveProduct,
     VendorRemoveUser,
+    VendorTransactionCreate,
+    VendorTransactionUpdate,
     VendorUpdate,
     VendorUpdateHeader,
     VendorUpdateLogo,
@@ -159,9 +159,9 @@ class Mutation(graphene.ObjectType):
     billing_info_update = BillingInfoUpdate.Field()
     billing_info_delete = BillingInfoDelete.Field()
 
-    transaction_create = TransactionCreate.Field()
-    transaction_update = TransactionUpdate.Field()
-    transaction_delete = TransactionDelete.Field()
+    vendor_transaction_delete = TransactionDelete.Field()
+    vendor_transaction_create = VendorTransactionCreate.Field()
+    vendor_transaction_update = VendorTransactionUpdate.Field()
 
     transaction_add_payment = TransactionAddPayment.Field()
 
